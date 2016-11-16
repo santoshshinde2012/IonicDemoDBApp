@@ -1,1 +1,12 @@
 /* Empty. Add your own CSS if you like */
+
+.item-avatar i:first-child, .item-avatar .item-img {
+  position: absolute !important;
+  top: 15px !important;
+  left: 15px !important;
+  font-size: 36px !important;
+  max-width: 40px !important;
+  max-height: 40px !important;
+  width: 100% !important;
+  border-radius: 4px !important;
+}

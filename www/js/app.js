@@ -51,6 +51,7 @@ angular.module('demoDBapp', ['ionic', 'ngCordova','demoDBapp.controllers', 'demo
   })
 
   .state('tab.transactions', {
+      cache: false,
       url: '/transactions',
       views: {
         'tab-transactions': {
@@ -59,16 +60,6 @@ angular.module('demoDBapp', ['ionic', 'ngCordova','demoDBapp.controllers', 'demo
         }
       }
     })
-    .state('tab.chat-detail', {
-      url: '/transactions/:chatId',
-      views: {
-        'tab-transactions': {
-          templateUrl: 'templates/chat-detail.html',
-          controller: 'ChatDetailCtrl'
-        }
-      }
-    })
-
   .state('tab.account', {
     url: '/account',
     views: {

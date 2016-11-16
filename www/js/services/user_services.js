@@ -1,5 +1,33 @@
-
 angular.module('demoDBapp.userservices', [])
+
+.factory('Users', function() {
+  // Might use a resource here that returns a JSON array
+
+  // Some fake testing data
+  var chats = [{
+    id: 0,
+    name: 'Santosh Shinde',
+    lastText: 'Our Hopes Never Lossed Because Our Hopes Not For Jokes !!',
+    face: 'img/santosh.jpg'
+  }];
+
+  return {
+    all: function() {
+      return chats;
+    },
+    remove: function(chat) {
+      chats.splice(chats.indexOf(chat), 1);
+    },
+    get: function(chatId) {
+      for (var i = 0; i < chats.length; i++) {
+        if (chats[i].id === parseInt(chatId)) {
+          return chats[i];
+        }
+      }
+      return null;
+    }
+  };
+})
 .service('UserService', function($q, $http) {
     return {
         get_GET_User: function(mode) {
