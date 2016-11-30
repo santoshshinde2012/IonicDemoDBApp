@@ -1,0 +1,36 @@
+<ion-view view-title="Details">
+  <ion-content>
+    <div class="card" ng-hide="banks.length">
+      <div class="item item-text-wrap">
+       User Accounts Not Availables , Please add it.
+      </div>
+    </div>
+    <div ng-show="banks.length">
+      <ion-list sortable draggable=".card" sorted="onReorder($fromIndex, $toIndex)">
+           <ion-item ng-repeat="bank in banks" class="item-light item-avatar card item-complex">
+               <div class="item-content">
+                   <i class="icon ion-ios-home-outline"></i>
+                   <div class="item-divider">{{bank.bank_name}}</div>
+                   <div class="item-text-wrap">
+                       <ul>
+                           <li>Account Number: {{bank.account_number}}</li>
+                           <li>Branch Name: {{bank.branch_name}}</li>
+                           <li>Branch Address: {{bank.branch_address}}</li>
+                           <li>IFSC Code: {{bank.ifsc_code}}</li>
+                       </ul>
+                   </div>
+               </div>
+           </ion-item>
+       </ion-list>
+    </div>
+  </ion-content>
+  <!-- Button Starts -->
+  <div class="float-button float-details-button" ng-click="addBankAccount()">
+    <span class="height-fix">
+	   		<a class="content">
+	    		<i class="ion-ios-plus-empty"> </i>
+	   		</a>
+	  	</span>
+  </div>
+  <!-- Button Ends -->
+</ion-view>

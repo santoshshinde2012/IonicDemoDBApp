@@ -5,7 +5,8 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('demoDBapp', ['ionic', 'ngCordova','demoDBapp.controllers', 'demoDBapp.utils','demoDBapp.services'])
+var db_name = 'Bank';
+angular.module('demoDBapp', ['ionic', 'ngCordova','demoDBapp.Dashboard_Controllers', 'demoDBapp.Transaction_Controllers','demoDBapp.Account_Controllers','demoDBapp.utils','demoDBapp.services','demoDBapp.sortable'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -68,9 +69,21 @@ angular.module('demoDBapp', ['ionic', 'ngCordova','demoDBapp.controllers', 'demo
         controller: 'AccountCtrl'
       }
     }
+  })
+  .state('tab.account-details', {
+    url: '/account/:userId',
+    views: {
+      'tab-account': {
+        templateUrl: 'templates/accounts/account-details.html',
+        controller: 'AccountDetailsCtrl'
+      }
+    }
   });
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/dash');
 
+})
+.factory('TempData', function () {
+    return {};
 });
